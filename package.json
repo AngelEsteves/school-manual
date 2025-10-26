@@ -1,0 +1,12 @@
+{
+  "name": "school-manual",
+  "version": "1.0.0",
+  "description": "Manual escolar con viewer y endpoint fijo para el PDF",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

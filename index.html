@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Manual de la Escuela — Visualizador</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <img id="site-logo" src="/logo.svg" alt="Escudo Escuela" />
+        <span class="brand-text">Manual Escolar</span>
+      </div>
+      <nav>
+        <a href="index.html">Manual</a>
+        <a href="gallery.html">Galería</a>
+        <a href="developers.html">Desarrolladores</a>
+      </nav>
+      <div class="actions">
+        <button id="toggle-theme">Modo oscuro</button>
+        <button id="download-pdf" title="Descargar PDF">Descargar PDF</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <aside class="sidebar">
+        <h3>Índice</h3>
+        <input id="index-search" type="search" placeholder="Buscar sección..." aria-label="Buscar en el índice" />
+        <div id="pdf-index" class="index">
+          <p class="muted">El manual está embebido y se sirve desde el servidor; no se permite subir otros PDFs.</p>
+        </div>
+
+        <hr/>
+        <h4>Ubicación</h4>
+        <!-- Reemplazado por texto breve; el script sigue usando #school-info para poblar datos pero mostramos solo una línea -->
+        <div id="school-info" class="short-location">Barquisimeto, VE</div>
+        <button id="open-maps">Abrir en Google Maps</button>
+        <div id="map-embed" class="map-container" style="width:100%;height:200px;border-radius:6px;overflow:hidden;background:var(--card);display:flex;align-items:center;justify-content:center;margin-top:10px;position:relative">
+          <span class="muted">Mapa cargándose...</span>
+          <div id="map-overlay" class="map-overlay" aria-hidden="false" style="display:none"></div>
+        </div>
+      </aside>
+
+      <section class="viewer">
+        <div class="viewer-toolbar">
+          <button id="prev-page">◀</button>
+          <span> Página <span id="page-num">—</span> / <span id="page-count">—</span></span>
+          <button id="next-page">▶</button>
+          <!-- PDF search -->
+          <div class="pdf-search">
+            <input id="pdf-search-input" type="search" placeholder="Buscar en el PDF..." aria-label="Buscar en el PDF" />
+            <button id="pdf-search-prev" title="Anterior">‹</button>
+            <button id="pdf-search-next" title="Siguiente">›</button>
+            <span id="pdf-search-count" class="muted">0</span>
+          </div>
+        </div>
+        <canvas id="pdf-render"></canvas>
+        <div id="pdf-message" class="muted">Carga un PDF para comenzar.</div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>Hecho con creatividad — Puedes sustituir el PDF por el proporcionado.</small>
+    </footer>
+  </body>
+</html>
