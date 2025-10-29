@@ -1,0 +1,89 @@
+:root{
+  --bg:#f6f7fb;
+  --card:#fff;
+  --text:#111827;
+  --muted:#6b7280;
+  --accent:#0ea5a4;
+}
+.dark{
+  --bg:#0b1220;
+  --card:#091224;
+  --text:#e6eef8;
+  --muted:#9aa6b2;
+  --accent:#38bdf8;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(90deg,rgba(255,255,255,0.03),transparent);border-bottom:1px solid rgba(0,0,0,0.06)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{width:48px;height:48px;object-fit:contain;border-radius:6px}
+.brand .brand-text{font-weight:700;font-size:1.05rem}
+.topbar nav a{margin:0 8px;text-decoration:none;color:var(--muted)}
+.actions button{padding:6px 10px;border-radius:6px;border:1px solid rgba(0,0,0,0.06);background:var(--card);cursor:pointer}
+.actions button{ /* make theme toggle look like index rows */
+  padding:8px 12px;border-radius:8px;border:none;box-shadow:0 4px 10px rgba(2,6,23,0.04);background:var(--card);font-weight:600;color:var(--text)}
+.actions button:hover{transform:translateY(-2px);transition:transform 120ms ease}
+
+/* Dark-mode specific stronger contrast for toggle and search controls */
+.dark .actions button{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);color:var(--text);box-shadow:none;border:1px solid rgba(255,255,255,0.04)}
+.dark .pdf-search input, .dark #index-search{background:#071428;color:var(--text);border-color:rgba(255,255,255,0.06)}
+.dark .pdf-search button{background:#081826;color:var(--text);border:1px solid rgba(255,255,255,0.04)}
+
+/* Light-mode tweaks to ensure good contrast */
+.pdf-search input, #index-search{background:var(--card);color:var(--text)}
+.pdf-search button{background:var(--card);color:var(--text);border:1px solid rgba(0,0,0,0.06)}
+.container{display:flex;gap:16px;padding:18px}
+.sidebar{width:300px;background:var(--card);padding:14px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+.viewer{flex:1;display:flex;flex-direction:column;align-items:center}
+.viewer-toolbar{width:100%;display:flex;gap:8px;align-items:center;padding:8px}
+#pdf-render{border-radius:6px;max-width:100%;box-shadow:0 8px 24px rgba(2,6,23,0.08)}
+.index{max-height:50vh;overflow:auto;padding:6px}
+.index-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:10px;border-radius:8px;background:var(--card);box-shadow:0 4px 10px rgba(2,6,23,0.04)}
+.index-row .title-btn{flex:1;text-align:left;border:none;background:transparent;padding:0;font-weight:600;color:var(--text);cursor:pointer}
+.index-row .page-span{margin-left:8px;color:var(--muted);font-size:0.95em}
+.index-row:hover{transform:translateY(-2px);transition:transform 120ms ease}
+.index .muted{color:var(--muted)}
+
+/* Search input */
+#index-search{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);margin-bottom:8px;background:transparent;color:var(--text)}
+#index-search::placeholder{color:var(--muted)}
+
+/* PDF search in viewer */
+.pdf-search{display:flex;align-items:center;gap:6px;margin-left:12px}
+.pdf-search input{padding:6px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);background:transparent;color:var(--text)}
+.pdf-search button{padding:6px 8px;border-radius:6px;border:none;background:var(--card);cursor:pointer}
+.pdf-search #pdf-search-count{min-width:36px;text-align:right}
+
+/* Dark mode tweaks for index rows */
+.dark .index-row{background:#071428}
+.dark #index-search{border-color:rgba(255,255,255,0.06)}
+.muted{color:var(--muted)}
+.footer{text-align:center;padding:12px;color:var(--muted)}
+
+/* gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.gallery-grid img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+
+/* Map overlay: small card on top-left of map */
+.map-container{position:relative}
+.map-overlay{position:absolute;left:10px;top:10px;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.95);color:var(--text);box-shadow:0 6px 18px rgba(2,6,23,0.08);max-width:85%;font-size:0.9rem}
+.dark .map-overlay{background:rgba(6,12,22,0.9);color:var(--text);border:1px solid rgba(255,255,255,0.04)}
+.map-overlay h5{margin:0 0 6px 0;font-size:0.95rem}
+.map-overlay p{margin:0;font-size:0.85rem;color:var(--muted)}
+
+#download-pdf{padding:8px 12px;border-radius:8px;border:none;box-shadow:0 4px 10px rgba(2,6,23,0.04);background:var(--card);font-weight:600;color:var(--text)}
+#download-pdf:hover{transform:translateY(-2px);transition:transform 120ms ease}
+.dark #download-pdf{background:#081826;color:var(--text);border:1px solid rgba(255,255,255,0.04)}
+
+/* when download button is inside the header actions, give a small gap */
+.topbar .actions #download-pdf{margin-left:10px}
+
+/* short location styling */
+.short-location{font-weight:600;color:var(--muted);margin-bottom:8px}
+
+/* developer cards */
+.dev-cards{display:flex;gap:12px;flex-wrap:wrap}
+.dev-card{background:var(--card);padding:12px;border-radius:8px;width:230px}
+
+/* responsive */
+@media (max-width:900px){.container{flex-direction:column}.sidebar{width:auto}}
